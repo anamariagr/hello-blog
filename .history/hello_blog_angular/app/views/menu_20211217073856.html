@@ -1,0 +1,67 @@
+
+  <div class="header" ng-controller = "MenuCtrl as menu">
+
+
+    <div class="navbar navbar-fixed-top navbar-custom navbar navbar-default">
+      <div class="top-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    aaa
+                </div>
+                <div class="col-md-4">
+                    aa
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="container" >
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><span class="navbar-logo"  [innerHTML]="otro">Logo_A</span></a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li ng-class="{active : menu.isActive('/')}"><a href="#!/">inicio</a></li>
+             <li ng-class="{active : menu.isActive('/about')}"><a ng-href="#!/about">Blog</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right avatar-nav">
+
+            <li>
+              <div class="dropdown">
+                <div class="avatar">
+                  <div class="text-center info-user">
+                    <img  class="avatar" src="https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png" class="img-responsive">
+                    <p>{{menu.user.name}}</p>
+
+                  </div>
+
+                  <button class="btn  dropdown-toggle d-flex" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <span class="caret"></span>
+                </button>
+
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <div class="dropdown-user">
+                    <img  class="avatar" src="https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png" class="img-responsive">
+                    <p>{{menu.user.name}}</p>
+                   <p>{{menu.user.email}}</p>
+                  </div>
+                  <li><a href="#">Crear</a></li>
+                  <li><a href="#">Publicar</a></li>
+                  <li><a href="#">Editar</a></li>
+                  <li><a href="#">Actualizar datos</a></li>
+                  <li><a href="#" ng-click="menu.logout()">Cerrar Sesion</a></li>
+
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+</div>

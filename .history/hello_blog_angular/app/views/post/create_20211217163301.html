@@ -1,0 +1,65 @@
+<div ng-include="create.menuTemplate.url"></div>
+
+
+<div class="section">
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-md-4">
+             <h2> Hello! {{menu.user.name}}</h2>
+             <p>What are you writting today?</p>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="row">
+              <div class="col-md-7">
+                <div class="card">
+                  <p class="title" ng-if="create.id==0">Create new post</p>
+                  <p class="title" ng-if="create.id==0">Update post</p>
+                  <form>
+                    <div class="form-group">
+                        <input  ng-model="create.title" type="text" value="" placeholder="Title">
+                    </div>
+
+                  <div class="form-group">
+                    <textarea  ng-model="create.description" value="" placeholder="Description"></textarea>
+                </div>
+                  </form>
+
+                  <a class="btn" ng-click="create.sendData()">guardar</a>
+                              </div>
+              </div>
+              <div class="col-md-5">
+                <div class="card">
+                  <p class="title">Recently created</p>
+                  <table class="table">
+                    <thead class="thead-dark" >
+                      <tr>
+                        <th scope="row">Id</th>
+                        <td>Title</td>
+                        <td>date</td>
+                        <th scope="col">Edit</th>
+                      </tr>
+                      <tr ng-repeat="item in create.posts">
+                        <th scope="row"> {{item.id}}</th>
+                        <td> {{item.title}}</td>
+                        <td> {{item.created_at}}</td>
+
+                        <td><a class="btn btn-success"  ng-click="create.edit(item)" >Edit</a></td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+
+
+                              </div>
+              </div>
+          </div>
+
+        </div>
+    </div>
+</div>
+</div>

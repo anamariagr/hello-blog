@@ -1,0 +1,71 @@
+<div ng-include="post.menuTemplate.url"></div>
+
+
+<div class="section">
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-md-4">
+             <h2> Hello! {{menu.user.name}}</h2>
+             <p>What are you writting today?</p>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="row">
+              <div class="col-md-5">
+                <div class="card">
+                  <p class="title" ng-if="post.id==0">Create new post</p>
+                  <p class="title" ng-if="post.id>0">Update post</p>
+                  <form>
+                    <div class="form-group">
+                        <input  ng-model="post.title" type="text" value="" placeholder="Title">
+                    </div>
+
+                  <div class="form-group">
+                    <textarea  ng-model="post.description" value="" placeholder="Description"></textarea>
+                </div>
+                  </form>
+
+                  <a class="btn" ng-click="post.sendData()">guardar</a>
+                  <a class="btn" ng-click="post.reset()">reset</a>
+                              </div>
+              </div>
+              <div class="col-md-7">
+                <div class="card">
+                  <p class="title">Recently created</p>
+                  <table class="table">
+                    <thead class="thead-dark" >
+                      <tr>
+                        <th scope="row">Id</th>
+                        <td>Title</td>
+                        <td>date</td>
+                        <td>Status</td>
+                        <th scope="col">Edit</th>
+                      </tr>
+                      <tr ng-repeat="item in post.posts">
+                        <th scope="row"> {{item.id}}</th>
+                        <td> {{item.title}}</td>
+                        <td> {{item.created_at}}</td>
+                        <td> {{item.status}}</td>
+
+                        <td><a class="btn btn-success" ng-if="post.canUpdate"  ng-click="post.edit(item)" >Edit</a></td>
+                        <td><a class="btn btn-danger" ng-if="post.canDelete"    ng-click="post.delete(item)" >Delete</a></td>
+                        <td ng-if="item.status==0" ><a class="btn btn-warning" ng-if="post.canPublish"    ng-click="create.publish(item)" >Publicar</a></td>
+                        <td ng-if="item.status==1" ><a class="btn btn-warning" ng-if="post.canPublish"    ng-click="create.publish(item)" >Despublicar</a></td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+
+
+                              </div>
+              </div>
+          </div>
+
+        </div>
+    </div>
+</div>
+</div>
